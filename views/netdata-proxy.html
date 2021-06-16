@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/<%= title %>/public/style.css">
+</head>
+<body class="bg-dark text-white">
+    <div class="content">
+        <h1> WELCOME to <%= title %></h1>
+        <div id="about"><%= title %> is a tool which centrally proxy all netdata traffic to the backend netdata node. This is used when the firewall is not open between client and netdata server, or user do not want to access via different endpoints</div>
+
+        <br/>
+        <div class="server-input">
+            <input type="text" id="server"/>
+            <button onclick="redirect()">submit</button>
+        </div>
+        <br/>
+        <div id="visited-about">below is a list of visited hosts since this proxy started</div>
+        <table id="visited-table">
+            <tr><th>Host/IP</th><th>API counts</th></tr>
+            <% for (const [hostname, count] of Object.entries(visited)) { %>
+                <tr> <td><a href="/<%= title %>/host/<%= hostname %>/"><%= hostname %></a></td><td><%= count %></td> </tr>
+            <% }%>
+        </table>
+        </div>
+    </div>
+    <script>
+    function redirect() {
+        var server = document.getElementById("server").value;
+        console.log("clicked " + server)
+        window.location.href = "/netdata-proxy/host/" + server + "/";
+    }
+    </script>
+</body>
+</html>
