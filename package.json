@@ -1,11 +1,13 @@
 {
   "name": "netdata-proxy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "dynamically proxy netdata to correct backend ",
   "dependencies": {
     "express": "",
-    "http-proxy-middleware": "",
+    "http-proxy-middleware": "1.2.0",
+    "prom-client": "11.5.1",
     "ejs": "",
+    "express-prometheus-middleware": "",
     "morgan": ""
   },
   "main": "index.js",
