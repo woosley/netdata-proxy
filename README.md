@@ -8,6 +8,6 @@ netdata instances
 
 ```
 npm i 
-npm run
+npm start
 ```
 
